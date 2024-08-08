@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const concat = require("gulp-concat");
 
 // ***********************
-// Move JS Files to src/js
+// Move JS Files to dist/js
 // ***********************
 
 function js() {
@@ -23,7 +23,7 @@ function js() {
       "node_modules/jquery.easing/jquery.easing.min.js",
       "node_modules/jquery-countdown/dist/jquery.countdown.min.js",
     ])
-    .pipe(gulp.dest("src/js"));
+    .pipe(gulp.dest("dist/js"));
 }
 
 // *****************************
@@ -48,30 +48,30 @@ function scripts() {
       "node_modules/jquery-countdown/dist/jquery.countdown.min.js",
     ])
     .pipe(concat("alime.bundle.js"))
-    .pipe(gulp.dest("./src/js/"));
+    .pipe(gulp.dest("dist/js"));
 }
 
 // ************************************
-// Move Font Awesome Fonts to src/fonts
+// Move Font Awesome Fonts to dist/fonts
 // ************************************
 
 function fafonts() {
   return gulp
     .src(["node_modules/font-awesome/fonts/*"])
-    .pipe(gulp.dest("src/fonts"));
+    .pipe(gulp.dest("dist/fonts"));
 }
 
 // *******************************
-// Move Elegant Icons to src/fonts
+// Move Elegant Icons to dist/fonts
 // *******************************
 function elefonts() {
   return gulp
     .src(["node_modules/elegant-icons/fonts/*"])
-    .pipe(gulp.dest("src/css/fonts"));
+    .pipe(gulp.dest("dist/css/fonts"));
 }
 
 // *******************
-// Move CSS to src/css
+// Move CSS to dist/css
 // *******************
 
 function css() {
@@ -84,8 +84,11 @@ function css() {
       "node_modules/wowjs/css/libs/animate.css",
       "node_modules/magnific-popup/dist/magnific-popup.css",
     ])
-    .pipe(gulp.dest("src/css"));
+    .pipe(gulp.dest("dist/css"));
 }
 
 // Define default task
 exports.default = gulp.series(js, scripts, css, fafonts, elefonts);
+
+// Define build task
+exports.build = exports.default;
