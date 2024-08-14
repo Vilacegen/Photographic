@@ -24,6 +24,4 @@ Welcome to the AceStudios photography website repository. This project showcases
 - Add your own images to `src/img/gallery/` and `src/img/team/`
 - Modify HTML files in the root of `src/` to update content
 
-## Deployment
 
-Build the project for production:
